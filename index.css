@@ -8,6 +8,10 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #1a1a1a;
+  background-image: url('assets/bg-qgP98aaC.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;
   min-height: 100vh;
   display: flex;
