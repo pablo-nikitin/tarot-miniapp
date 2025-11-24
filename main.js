@@ -85,13 +85,20 @@ function sendResultToTelegram() {
     selectedFaces: selectedFaces       // какие конкретно картинки
   };
 
+  console.log('📤 Sending payload to Telegram:', payload);
+
   // если мини-аппа запущена внутри Telegram
   if (window.Telegram && window.Telegram.WebApp) {
     const tg = window.Telegram.WebApp;
-    tg.sendData(JSON.stringify(payload));
+    const jsonPayload = JSON.stringify(payload);
+    console.log('📤 JSON payload:', jsonPayload);
+    console.log('📤 Telegram WebApp available, sending data...');
+    tg.sendData(jsonPayload);
+    console.log('📤 Data sent, closing Mini App...');
     tg.close(); // закрываем веб-аппу
   } else {
     // для локальной отладки в браузере
+    console.log('⚠️ Not in Telegram WebApp, showing alert for debugging');
     console.log('Selected cards:', payload);
     alert('Выбранные карты:\n' + JSON.stringify(payload, null, 2));
   }
